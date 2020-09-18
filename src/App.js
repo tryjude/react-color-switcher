@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
+import SwitchColorButton from './SwitchColorButton'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const [color, setColor] = useState('blue')
-  console.log(color)
+  const [color, setColor] = useState('')
   console.log(setColor)
+  const colors = ['red', 'blue', 'yellow']
   return (
     <div className={`react-root ${color}`}>
       <div className="centered">
         <h1>Color Picker</h1>
-        <button className="red" onClick={() => setColor('red')}>Red</button>
-        <button className="blue" onClick={() => setColor('blue')}>Blue</button>
-        <button className="yellow" onClick={() => setColor('yellow')}>Yellow</button>
-        
+        {colors.map(currentColor => <SwitchColorButton color='red' setColor={setColor}/>)}
+        <SwitchColorButton color='red' setColor={setColor} />
+        <SwitchColorButton color='blue' setColor={setColor} />
+        <SwitchColorButton color='yellow' setColor={setColor} />
       </div>
     </div>
   );
